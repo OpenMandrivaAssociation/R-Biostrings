@@ -1,28 +1,31 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 %global packname  Biostrings
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
 Version:          2.22.0
-Release:          1
+Release:          2
 Summary:          String objects representing biological sequences, and matching algorithms
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
-Requires:         R-methods R-IRanges 
-Requires:         R-graphics R-methods R-stats R-utils R-IRanges 
+Requires:         R-methods R-IRanges R-graphics R-methods R-stats R-utils
+Requires:         R-RUnit
 %if %{with bootstrap}
-Requires:         R-RUnit 
-%else
-Requires:         R-BSgenome R-BSgenome.Celegans.UCSC.ce2 R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures R-hgu95av2cdf R-affy R-affydata R-RUnit 
+Requires:         R-BSgenome R-BSgenome.Celegans.UCSC.ce2
+Requires:         R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe
+Requires:         R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures
+Requires:         R-hgu95av2cdf R-affy R-affydata
 %endif
-BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods R-IRanges
-BuildRequires:    R-graphics R-methods R-stats R-utils R-IRanges 
-%if %{with bootstrap}
+BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
+BuildRequires:    R-IRanges R-graphics R-methods R-stats R-utils R-IRanges
 BuildRequires:    R-RUnit 
-%else
-BuildRequires:    R-BSgenome R-BSgenome.Celegans.UCSC.ce2 R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures R-hgu95av2cdf R-affy R-affydata R-RUnit 
+%if %{without bootstrap}
+BuildRequires:    R-BSgenome R-BSgenome.Celegans.UCSC.ce2
+BuildRequires:    R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe
+BuildRequires:    R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures
+BuildRequires:    R-hgu95av2cdf R-affy R-affydata
 %endif
 
 %description
