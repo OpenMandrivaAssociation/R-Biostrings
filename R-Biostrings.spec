@@ -11,7 +11,7 @@ License:          Artistic-2.0
 URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
 Requires:         R-methods R-IRanges R-graphics R-methods R-stats R-utils
-Requires:         R-RUnit
+Requires:         R-RUnit R-Rmpi
 %if %{with bootstrap}
 Requires:         R-BSgenome R-BSgenome.Celegans.UCSC.ce2
 Requires:         R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe
@@ -20,13 +20,14 @@ Requires:         R-hgu95av2cdf R-affy R-affydata
 %endif
 BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
 BuildRequires:    R-IRanges R-graphics R-methods R-stats R-utils R-IRanges
-BuildRequires:    R-RUnit 
+BuildRequires:    R-RUnit R-Rmpi
 %if %{without bootstrap}
 BuildRequires:    R-BSgenome R-BSgenome.Celegans.UCSC.ce2
 BuildRequires:    R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe
 BuildRequires:    R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures
 BuildRequires:    R-hgu95av2cdf R-affy R-affydata
 %endif
+BuildRequires:    x11-server-xvfb
 
 %description
 Memory efficient string containers, string matching algorithms, and other
@@ -45,7 +46,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 %if %{without bootstrap}
 %check
-%{_bindir}/R CMD check %{packname}
+xvfb-run %{_bindir}/R CMD check %{packname}
 %endif
 
 %files
