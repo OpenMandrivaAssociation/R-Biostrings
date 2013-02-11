@@ -12,7 +12,7 @@ URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
 Requires:         R-methods R-IRanges R-graphics R-methods R-stats R-utils
 Requires:         R-RUnit R-Rmpi
-%if %{with bootstrap}
+%if %{without bootstrap}
 Requires:         R-BSgenome R-BSgenome.Celegans.UCSC.ce2
 Requires:         R-BSgenome.Dmelanogaster.UCSC.dm3 R-drosophila2probe
 Requires:         R-hgu95av2probe R-hgu133aprobe R-GenomicFeatures
