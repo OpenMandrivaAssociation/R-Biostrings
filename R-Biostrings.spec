@@ -4,7 +4,7 @@
 
 Name:             R-%{packname}
 Version:          2.22.0
-Release:          2
+Release:          3
 Summary:          String objects representing biological sequences, and matching algorithms
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
