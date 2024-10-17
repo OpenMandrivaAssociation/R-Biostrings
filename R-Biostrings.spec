@@ -8,7 +8,7 @@ Release:          3
 Summary:          String objects representing biological sequences, and matching algorithms
 Group:            Sciences/Mathematics
 License:          Artistic-2.0
-URL:              http://bioconductor.org/packages/release/bioc/html/%{packname}.html
+URL:              https://bioconductor.org/packages/release/bioc/html/%{packname}.html
 Source0:          http://bioconductor.org/packages/release/bioc/src/contrib/%{packname}_%{version}.tar.gz
 Requires:         R-methods R-IRanges R-graphics R-methods R-stats R-utils
 Requires:         R-RUnit R-Rmpi
